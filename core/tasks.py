@@ -21,6 +21,6 @@ def process_images_task(input_folder, output_folder, max_size_kb, quality, max_r
                 output_folder, f"{os.path.splitext(file_name)[0]}.{fmt.lower()}"
             )
             process_image(file_path, output_path, max_size_kb, quality, max_resolution, fmt)
-            print(f"✅ Processed: {file_name}")
+            print(f"Processed: {file_name}")
         except Exception as e:
-            print(f"❌ Failed: {file_name} -> {e}")
+            print(f"Failed: {file_name} -> {e}")

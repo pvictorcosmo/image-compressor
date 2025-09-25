@@ -6,13 +6,11 @@ import config
 
 
 def start_app():
-    # Cria a janela principal com tema moderno
     root = ttk.Window(themename="flatly")
     root.title(config.APP_NAME)
     root.geometry("600x500")
     root.resizable(False, False)
 
-    # Variáveis da GUI
     input_folder_var = ttk.StringVar()
     output_folder_var = ttk.StringVar()
     max_size_kb_var = ttk.StringVar(value=str(config.DEFAULT_MAX_SIZE_KB))
@@ -21,7 +19,6 @@ def start_app():
     max_height_var = ttk.StringVar(value=str(config.DEFAULT_MAX_HEIGHT))
     format_var = ttk.StringVar(value=config.DEFAULT_FORMAT)
 
-    # Funções
     def select_input_folder():
         folder = filedialog.askdirectory(title="Select input folder")
         if folder:
@@ -53,11 +50,9 @@ def start_app():
         except Exception as e:
             messagebox.showerror("Error", str(e))
 
-    # Layout moderno
     frm_main = ttk.Frame(root, padding=20)
     frm_main.pack(fill=BOTH, expand=True)
 
-    # Input & Output folders
     ttk.Label(frm_main, text="Input Folder:").grid(row=0, column=0, sticky=W, pady=5)
     ttk.Entry(frm_main, textvariable=input_folder_var, width=45).grid(row=0, column=1, pady=5, padx=5)
     ttk.Button(frm_main, text="Select", bootstyle=SUCCESS, command=select_input_folder).grid(row=0, column=2, padx=5)
@@ -66,7 +61,6 @@ def start_app():
     ttk.Entry(frm_main, textvariable=output_folder_var, width=45).grid(row=1, column=1, pady=5, padx=5)
     ttk.Button(frm_main, text="Select", bootstyle=SUCCESS, command=select_output_folder).grid(row=1, column=2, padx=5)
 
-    # Settings frame
     frm_settings = ttk.LabelFrame(frm_main, text="Settings", padding=15)
     frm_settings.grid(row=2, column=0, columnspan=3, pady=15, sticky="ew")
 
@@ -85,7 +79,6 @@ def start_app():
     ttk.Label(frm_settings, text="Output Format:").grid(row=4, column=0, sticky=W, pady=5)
     ttk.Entry(frm_settings, textvariable=format_var, width=10).grid(row=4, column=1, pady=5)
 
-    # Process button
     ttk.Button(frm_main, text="Process Images", bootstyle=PRIMARY, width=30, command=start_processing).grid(
         row=3, column=0, columnspan=3, pady=20
     )

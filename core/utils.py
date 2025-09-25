@@ -1,4 +1,3 @@
-# core/utils.py
 import os
 
 
