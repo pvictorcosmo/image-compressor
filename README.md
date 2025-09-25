@@ -10,6 +10,12 @@ This project was created to solve a real problem at work: handling large sets of
 
 ## Installation
 
+Clone the repository:
+
+```sh
+git clone https://github.com/yourusername/image-compressor-resizer.git
+cd image-compressor-resizer
+
 OS X & Linux:
 
 ```sh
