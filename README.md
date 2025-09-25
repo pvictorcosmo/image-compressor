@@ -1,9 +1,8 @@
-# Product Name
-> Short blurb about what your product does.
+# Image Compressor & Resizer
+> A modern tool to resize, compress, convert, and process images efficiently.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+[![Python Version][python-image]][python-url]
+[![Downloads Stats][pypi-downloads]][pypi-url]
 
 One to two paragraph statement about your product and what it does.
 
