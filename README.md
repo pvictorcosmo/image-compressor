@@ -15,6 +15,16 @@ Clone the repository:
 ```sh
 git clone https://github.com/yourusername/image-compressor-resizer.git
 cd image-compressor-resizer
+```
+
+Create a virtual environment (recommended) and install dependencies:
+
+```sh
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+```
 
 OS X & Linux:
 
