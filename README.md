@@ -4,11 +4,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![Pillow Downloads](https://img.shields.io/pypi/dm/Pillow.svg)](https://pypi.org/project/Pillow/)
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
-One to two paragraph statement about your product and what it does.
+This project was created to solve a real problem at work: handling large sets of images that needed to be resized, compressed, converted, and processed for web and mobile applications without losing quality. The tool allows you to **batch process multiple images**, automatically resizing them to a maximum resolution, compressing them to a target file size, and converting between formats (WebP, PNG, JPEG). It is designed to save time, optimize storage, and ensure consistency when managing image assets.
 
 ![](header.png)
 
