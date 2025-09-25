@@ -1,8 +1,8 @@
 # Image Compressor & Resizer
 > A modern tool to resize, compress, convert, and process images efficiently.
 
-[![Python Version][python-image]][python-url]
-[![Downloads Stats][pypi-downloads]][pypi-url]
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![Pillow Downloads](https://img.shields.io/pypi/dm/Pillow.svg)](https://pypi.org/project/Pillow/)
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
