@@ -1,22 +1,27 @@
-import tkinter as tk
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 from tkinter import filedialog, messagebox
 from core import tasks
 import config
 
 
 def start_app():
-    root = tk.Tk()
+    # Cria a janela principal com tema moderno
+    root = ttk.Window(themename="flatly")
     root.title(config.APP_NAME)
+    root.geometry("600x500")
+    root.resizable(False, False)
 
-    # GUI state variables
-    input_folder_var = tk.StringVar()
-    output_folder_var = tk.StringVar()
-    max_size_kb_var = tk.StringVar(value=str(config.DEFAULT_MAX_SIZE_KB))
-    quality_var = tk.StringVar(value=str(config.DEFAULT_QUALITY))
-    max_width_var = tk.StringVar(value=str(config.DEFAULT_MAX_WIDTH))
-    max_height_var = tk.StringVar(value=str(config.DEFAULT_MAX_HEIGHT))
-    format_var = tk.StringVar(value=config.DEFAULT_FORMAT)
+    # Variáveis da GUI
+    input_folder_var = ttk.StringVar()
+    output_folder_var = ttk.StringVar()
+    max_size_kb_var = ttk.StringVar(value=str(config.DEFAULT_MAX_SIZE_KB))
+    quality_var = ttk.StringVar(value=str(config.DEFAULT_QUALITY))
+    max_width_var = ttk.StringVar(value=str(config.DEFAULT_MAX_WIDTH))
+    max_height_var = ttk.StringVar(value=str(config.DEFAULT_MAX_HEIGHT))
+    format_var = ttk.StringVar(value=config.DEFAULT_FORMAT)
 
+    # Funções
     def select_input_folder():
         folder = filedialog.askdirectory(title="Select input folder")
         if folder:
@@ -48,30 +53,45 @@ def start_app():
         except Exception as e:
             messagebox.showerror("Error", str(e))
 
-    # Layout
-    tk.Label(root, text="Input Folder:").grid(row=0, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=input_folder_var, width=50).grid(row=0, column=1, padx=5, pady=5)
-    tk.Button(root, text="Select", command=select_input_folder).grid(row=0, column=2, padx=5, pady=5)
+    # Layout moderno
+    frm_main = ttk.Frame(root, padding=20)
+    frm_main.pack(fill=BOTH, expand=True)
 
-    tk.Label(root, text="Output Folder:").grid(row=1, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=output_folder_var, width=50).grid(row=1, column=1, padx=5, pady=5)
-    tk.Button(root, text="Select", command=select_output_folder).grid(row=1, column=2, padx=5, pady=5)
+    # Input & Output folders
+    ttk.Label(frm_main, text="Input Folder:").grid(row=0, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_main, textvariable=input_folder_var, width=45).grid(row=0, column=1, pady=5, padx=5)
+    ttk.Button(frm_main, text="Select", bootstyle=SUCCESS, command=select_input_folder).grid(row=0, column=2, padx=5)
 
-    tk.Label(root, text="Max Size (KB):").grid(row=2, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=max_size_kb_var, width=10).grid(row=2, column=1, padx=5, pady=5)
+    ttk.Label(frm_main, text="Output Folder:").grid(row=1, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_main, textvariable=output_folder_var, width=45).grid(row=1, column=1, pady=5, padx=5)
+    ttk.Button(frm_main, text="Select", bootstyle=SUCCESS, command=select_output_folder).grid(row=1, column=2, padx=5)
 
-    tk.Label(root, text="Quality (1-100):").grid(row=3, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=quality_var, width=10).grid(row=3, column=1, padx=5, pady=5)
+    # Settings frame
+    frm_settings = ttk.LabelFrame(frm_main, text="Settings", padding=15)
+    frm_settings.grid(row=2, column=0, columnspan=3, pady=15, sticky="ew")
 
-    tk.Label(root, text="Max Width:").grid(row=4, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=max_width_var, width=10).grid(row=4, column=1, padx=5, pady=5)
+    ttk.Label(frm_settings, text="Max Size (KB):").grid(row=0, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_settings, textvariable=max_size_kb_var, width=10).grid(row=0, column=1, pady=5)
 
-    tk.Label(root, text="Max Height:").grid(row=5, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=max_height_var, width=10).grid(row=5, column=1, padx=5, pady=5)
+    ttk.Label(frm_settings, text="Quality (1-100):").grid(row=1, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_settings, textvariable=quality_var, width=10).grid(row=1, column=1, pady=5)
 
-    tk.Label(root, text="Output Format:").grid(row=6, column=0, padx=5, pady=5)
-    tk.Entry(root, textvariable=format_var, width=10).grid(row=6, column=1, padx=5, pady=5)
+    ttk.Label(frm_settings, text="Max Width:").grid(row=2, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_settings, textvariable=max_width_var, width=10).grid(row=2, column=1, pady=5)
 
-    tk.Button(root, text="Process Images", command=start_processing).grid(row=7, column=1, pady=10)
+    ttk.Label(frm_settings, text="Max Height:").grid(row=3, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_settings, textvariable=max_height_var, width=10).grid(row=3, column=1, pady=5)
+
+    ttk.Label(frm_settings, text="Output Format:").grid(row=4, column=0, sticky=W, pady=5)
+    ttk.Entry(frm_settings, textvariable=format_var, width=10).grid(row=4, column=1, pady=5)
+
+    # Process button
+    ttk.Button(frm_main, text="Process Images", bootstyle=PRIMARY, width=30, command=start_processing).grid(
+        row=3, column=0, columnspan=3, pady=20
+    )
 
     root.mainloop()
+
+
+if __name__ == "__main__":
+    start_app()
