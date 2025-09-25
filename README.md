@@ -43,7 +43,7 @@ This tool is suitable for developers, designers, and anyone who needs to **resiz
 
 ## Meta
 
-**Paulo Victor Cosmo** – [Your LinkedIn](https://www.linkedin.com/in/paulo-victor-cosmo-batista-537047218/) – pvictorcosmo@gmail.com
+**Paulo Victor Cosmo** – [LinkedIn](https://www.linkedin.com/in/paulo-victor-cosmo-batista-537047218/) – pvictorcosmo@gmail.com
 
 Distributed under the MIT license. See `LICENSE` for more information.
 
